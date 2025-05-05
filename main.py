@@ -9,7 +9,13 @@ from bookings import router as bookings_router
 
 models.Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="Car Rental System")
+app = FastAPI(
+    title="Car Rental System",
+    docs_url="/docs",
+    redoc_url="/redoc_test",
+    version="1.0.0",
+    openapi_url="/openapi.json",
+    )
 
 
 app.include_router(users_router)
