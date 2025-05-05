@@ -15,6 +15,7 @@ app = FastAPI(
     redoc_url="/redoc_test",
     version="1.0.0",
     openapi_url="/openapi.json",
+    description="This is a mini application for convenient car booking",
     )
 
 
