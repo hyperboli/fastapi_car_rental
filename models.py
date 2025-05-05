@@ -24,7 +24,6 @@ class Booking(Base):
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey("users.id"))
     car_id = Column(Integer, ForeignKey("cars.id"))
-    city_id = Column(Integer, ForeignKey("city.id"))
     start_time = Column(DateTime, nullable=False)
     end_time = Column(DateTime, nullable=False)
 
