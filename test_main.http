@@ -1,11 +1,44 @@
 # Test your FastAPI endpoints
 
-GET http://127.0.0.1:8000/
-Accept: application/json
+### create user
+POST http://127.0.0.1:8000/users/
+Content-Type: application/json
 
-###
+{
+  "name": "Ivan Ivanov"
+}
 
-GET http://127.0.0.1:8000/hello/User
-Accept: application/json
+### create new car
+POST http://127.0.0.1:8000/cars/
+Content-Type: application/json
 
-###
+{
+  "brand": "Toyota Camry",
+  "price_per_hour": 300
+}
+
+### get  available cars for a specific time period
+GET http://127.0.0.1:8000/bookings/available/?start_time=2025-05-06T10:00:00&end_time=2025-05-06T12:00:00
+
+### calculate rental price for given сar and time range
+GET http://127.0.0.1:8000/bookings/price/?car_id=1&start_time=2025-05-06T10:00:00&end_time=2025-05-06T12:00:00
+
+### book сar
+POST http://127.0.0.1:8000/bookings/
+Content-Type: application/json
+
+{
+  "user_id": 1,
+  "car_id": 1,
+  "start_time": "2025-05-06T10:00:00",
+  "end_time": "2025-05-06T12:00:00"
+}
+
+### Cancel a booking by booking ID
+DELETE http://127.0.0.1:8000/bookings/1
+
+### Delete a user by ID
+DELETE http://127.0.0.1:8000/users/1
+
+### Delete a car by ID
+DELETE http://127.0.0.1:8000/cars/1
